@@ -1,23 +1,22 @@
-ENV["RAILS_ENV"] ||= 'test'
+ENV['RAILS_ENV'] ||= 'test'
 
 unless ENV['CI']
   require 'simplecov'
   SimpleCov.start 'rails'
 end
 
-require File.
-expand_path("../../config/environment", __FILE__)
+require File
+  .expand_path('../../config/environment', __FILE__)
 
 require 'rspec/rails'
 require 'capybara/rails'
 
 # Custom matchers and macros, etc...
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f|
+Dir[Rails.root.join('spec/support/**/*.rb')].each do |f|
   require f
-}
+end
 
 RSpec.configure do |config|
-
   # in order to pass tags(symbols) as true values
   # you need to tell rspec to do so by
   config.treat_symbols_as_metadata_keys_with_true_values = true
@@ -29,7 +28,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   # excludes migration tag while running app base tests
-  config.filter_run_excluding :migration => true
+  config.filter_run_excluding migration: true
 
   # self explanatory
   # runs everything
@@ -39,5 +38,4 @@ RSpec.configure do |config|
   def logger
     Rails.logger
   end
-
 end

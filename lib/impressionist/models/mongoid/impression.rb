@@ -21,5 +21,4 @@ class Impression
   field :referrer
 
   after_save :impressionable_counter_cache_updatable?
-
 end

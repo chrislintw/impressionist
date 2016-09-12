@@ -14,5 +14,5 @@ class Impression
   key :referrer, String
   timestamps!
 
-  belongs_to :impressionable, :polymorphic=>true
+  belongs_to :impressionable, polymorphic: true
 end
